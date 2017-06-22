@@ -23,15 +23,17 @@ class CreatePostsTable extends Migration
             $table->string('level');
             $table->integer('price');
             $table->string('place');
-            $table->string('logo')->nullable()->change();
-            $table->string('image')->nullable()->change();
+            $table->string('logo')->nullable();
+            $table->string('image')->nullable();
             $table->string('style1');
             $table->string('link1');
-            $table->string('style2')->nullable()->change();
-            $table->string('link2')->nullable()->change();
-            $table->string('style3')->nullable()->change();
-            $table->string('link3')->nullable()->change();
+            $table->string('style2')->nullable();
+            $table->string('link2')->nullable();
+            $table->string('style3')->nullable();
+            $table->string('link3')->nullable();
             $table->timestamps();
+            $table->integer('verify')->default(0);
+
         });
     }
 

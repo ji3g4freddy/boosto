@@ -27,6 +27,7 @@ class CreateContestsTable extends Migration
             $table->string('logo');    
             $table->string('image');  
             $table->timestamps();
+            $table->integer('verify')->default(0);
         });
     }
 
