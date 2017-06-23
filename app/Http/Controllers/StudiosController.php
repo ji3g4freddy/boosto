@@ -20,6 +20,7 @@ class StudiosController extends Controller
         //join the users table and get all the posts
         $studios = POST::join('users','posts.user_id','=','users.id')
                     ->select('posts.*','users.name')
+                    ->where('posts.verify', '=', 1 )
                     ->get();
         // load the view and pass the posts
         return view('studio.index')
@@ -53,6 +54,7 @@ class StudiosController extends Controller
         //join the users table and get all the posts
         $studios = POST::join('users','posts.user_id','=','users.id')
                     ->select('posts.*','users.name')
+                    ->where('posts.verify', '=', 1 )
                     ->orderBy('updated_at', 'desc')
                     ->take(3)
                     ->get();

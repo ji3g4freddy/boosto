@@ -17,6 +17,8 @@
 
 Route::group(['middleware' => 'auth'], function() {
 Route::resource('posts', 'PostsController');
+Route::patch('verify/{post}', 'PostsController@verify');
+Route::patch('verify_no/{post}', 'PostsController@verify_no');
 Route::resource('articles', 'ArticlesController');
 Route::resource('contests', 'ContestsController');
 //Route::resource('comments', 'CommentsController');
