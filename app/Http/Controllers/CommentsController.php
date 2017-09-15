@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Contest;
-use App\Http\Requests\ContestRequest;
 
-class CompetitionsController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +14,6 @@ class CompetitionsController extends Controller
     public function index()
     {
         //
-        //join the users table and get all the contests
-        $competitions = Contest::join('users','contests.user_id','=','users.id')
-                    ->select('contests.*','users.name')
-                    ->where('contests.verify', '=', 1 )
-                    ->get();
-        // load the view and pass the contests
-        return view('competition.index')
-            ->with('competition', $competitions);
     }
 
     /**
@@ -57,11 +46,6 @@ class CompetitionsController extends Controller
     public function show($id)
     {
         //
-        $competition = Contest::find($id);
-
-        // show the view and pass the post to it
-        return view('competition.show')
-            ->with('competition', $competition);
     }
 
     /**
